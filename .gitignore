@@ -1,0 +1,16 @@
+# ROS 2 / Colcon
+build/
+install/
+log/
+
+# Python
+__pycache__/
+*.pyc
+
+# Editor files
+.vscode/
+.idea/
+
+# Temporary files
+*.swp
+*~
