@@ -4,16 +4,32 @@
     <joint name="camera_joint" type="fixed">
         <parent link="chassis"/>
         <child link="camera_link"/>
-        <origin xyz="0.305 0 0.08" rpy="0 0 0"/>
+        <origin xyz="${chassis_length} 0 ${chassis_height+0.15}" rpy="0 0.18 0"/>
     </joint>
 
     <link name="camera_link">
         <visual>
+            <origin xyz="0 0 0.06" rpy="0 0 0"/>
             <geometry>
-                <box size="0.010 0.03 0.03"/>
+                <box size="0.010 0.10 0.02"/>
             </geometry>
             <material name="red"/>
         </visual>
+        <visual>
+            <origin xyz="0 0 -0.05"/>
+            <geometry>
+                <cylinder radius="0.002" length="0.2"/>
+            </geometry>
+            <material name="black"/>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.010 0.03 0.03"/>
+            </geometry>
+        </collision>
+        <xacro:inertial_box mass="0.05" x="0.010" y="0.03" z="0.03">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </xacro:inertial_box>
     </link>
 
 
@@ -30,14 +46,15 @@
     <gazebo reference="camera_link">
         <material>Gazebo/Red</material>
 
-        <sensor name="camera" type="depth">
+        <sensor name="rgbd_camera" type="rgbd_camera">
             <pose> 0 0 0 0 0 0 </pose>
             <visualize>true</visualize>
             <update_rate>10</update_rate>
             <camera>
+                <camera_info_topic>rgbd_camera/camera_info</camera_info_topic>
                 <horizontal_fov>1.089</horizontal_fov>
                 <image>
-                    <format>B8G8R8</format>
+                    <format>R8G8B8</format>
                     <width>640</width>
                     <height>480</height>
                 </image>
@@ -46,11 +63,8 @@
                     <far>8.0</far>
                 </clip>
             </camera>
-            <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
-                <frame_name>camera_link_optical</frame_name>
-                <min_depth>0.1</min_depth>
-                <max_depth>100.0</max_depth>
-            </plugin>
+            <topic>rgbd_camera</topic>
+            <gz_frame_id>camera_link_optical</gz_frame_id>
         </sensor>
     </gazebo>
 
