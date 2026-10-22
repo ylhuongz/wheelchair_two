@@ -13,7 +13,7 @@ Built for **ROS 2 Jazzy Jalisco** and **Gazebo Harmonic** (`gz-sim`).
 ### Simulation Overview (Gazebo & RViz)
 <!-- Replace the link below with your image or GIF -->
 <p align="center">
-  <img src="docs/images/simulation_overview.gif" alt="Simulation Demo" width="80%">
+  <img src="docs/SLAM Sim.gif" alt="Simulation Demo" width="80%">
 </p>
 
 ### SLAM & Autonomous Navigation
