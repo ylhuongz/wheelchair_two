@@ -4,7 +4,7 @@
     <xacro:arg name="use_ros2_control" default="false"/>
     <xacro:arg name="sim_mode" default="true"/>
 
-    <xacro:include filename="robot_core_test.xacro" />
+    <xacro:include filename="robot_core.xacro" />
 
     <xacro:if value="$(arg use_ros2_control)">
         <xacro:include filename="ros2_control.xacro" />
