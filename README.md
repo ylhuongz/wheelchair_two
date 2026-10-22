@@ -82,7 +82,9 @@ Starts the wheelchair model inside the Gazebo simulation environment:
 ros2 launch wheelchair_two launch_sim.launch.py
 ```
 **Note:** Once Gazebo is up and running, click on the 3-dot in the top right corner. Search and add "Visualize lidar" (click refresh, topic should be /scan) as well as "teleop" (for movement).
+
 Sometimes the visuals can fail but it's still functional in RViz.
+
 Place some blocks around to create a simulated world.
 
 ### 2. Launch RViz
@@ -91,10 +93,15 @@ Launches the visualization tool to monitor robot sensors, transforms, and plans:
 rviz2
 ```
 **Note:** Make sure that *Fixed Frame* is set to odom
+
 Use the "Add" button to add the following:
+
   RobotModel (change *description topic* to "/robot_description")
+
   LaserScan (change *topic* to "/scan" and *size* to "0.04")
+
   Camera (change *topic* to "/rgbd_camera/image")
+
   Image (change *topic* to "/rgbd_camera/image")
 
 ### 3. Launch SLAM (Mapping)
@@ -104,6 +111,7 @@ ros2 launch slam_toolbox online_async_launch.py params_file:=./src/wheelchair_tw
 ```
 **Note:** Change *Fixed Frame* to "Map"
 Use the "Add" button to add Map (change *topic* to /map)
+
 It might take a few seconds to load. Once loaded, drive the robot around a bit to generate the map before launching Nav2.
 
 ### 4. Launch Nav2 (Autonomous Navigation)
@@ -112,7 +120,9 @@ Initializes navigation nodes and path planning costmaps:
 ros2 launch nav2_bringup navigation_launch.py params_file:=./src/wheelchair_two/config/nav2_params.yaml use_sim_time:=true
 ```
 **Note:** In the Map display on RViz, there should be more options under topic now. Also, the *Color Scheme* can be changed between "map" and "costmap".
+
 For global costmap, *Fixed Frame* set to "Map"
+
 For local costmap, *Fixed Frame* set to "Odom"
 
 ---
