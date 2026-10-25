@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
 
-    <joint name="ultrasonic_joint" type="fixed">
+    <joint name="ultrasonic0_joint" type="fixed">
         <parent link="chassis"/>
-        <child link="ultrasonic_link"/>
-        <origin xyz="${chassis_length+0.01} 0 ${chassis_height-0.02}" rpy="0 0 0"/>
+        <child link="ultrasonic0_link"/>
+        <origin xyz="${chassis_length+0.01} -${chassis_width/2-0.02} ${chassis_height/2}" rpy="0 0 0"/>
     </joint>
 
-    <link name="ultrasonic_link">
+    <link name="ultrasonic0_link">
         <visual>
             <geometry>
                 <box size="0.02 0.04 0.02"/>
@@ -24,10 +24,10 @@
         </xacro:inertial_box>
     </link>
 
-    <gazebo reference="ultrasonic_link">
+    <gazebo reference="ultrasonic0_link">
 
-        <sensor name="ultrasonic_sensor" type="gpu_lidar">
-            <pose> 0 0 0.01 0 0 0 </pose>
+        <sensor name="ultrasonic0_sensor" type="gpu_lidar">
+            <pose> 0 0 0 0 0 0 </pose>
             <update_rate>20</update_rate>
             <visualize>false</visualize>
             <lidar>
@@ -48,8 +48,268 @@
                     <max>4.0</max>
                 </range>
             </lidar>
-                <topic>ultrasonic/scan</topic>
-                <gz_frame_id>ultrasonic_link</gz_frame_id>
+                <topic>ultrasonic0/scan</topic>
+                <gz_frame_id>ultrasonic0_link</gz_frame_id>
+        </sensor>
+    </gazebo>
+
+    <joint name="ultrasonic1_joint" type="fixed">
+        <parent link="chassis"/>
+        <child link="ultrasonic1_link"/>
+        <origin xyz="${chassis_length+0.01} ${chassis_width/2-0.02} ${chassis_height/2}" rpy="0 0 0"/>
+    </joint>
+
+    <link name="ultrasonic1_link">
+        <visual>
+            <geometry>
+                <box size="0.02 0.04 0.02"/>
+            </geometry>
+            <material name="blue"/>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.02 0.04 0.02"/>
+            </geometry>
+        </collision>
+        <xacro:inertial_box mass="0.1" x="0.02" y="0.04" z="0.02">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </xacro:inertial_box>
+    </link>
+
+    <gazebo reference="ultrasonic1_link">
+
+        <sensor name="ultrasonic1_sensor" type="gpu_lidar">
+            <pose> 0 0 0 0 0 0 </pose>
+            <update_rate>20</update_rate>
+            <visualize>false</visualize>
+            <lidar>
+                <scan>
+                    <horizontal>
+                        <samples>5</samples>
+                        <min_angle>-0.26</min_angle>
+                        <max_angle>0.26</max_angle>
+                    </horizontal>
+                    <vertical>
+                        <samples>1</samples>
+                        <min_angle>0</min_angle>
+                        <max_angle>0</max_angle>
+                    </vertical>
+                </scan>
+                <range>
+                    <min>0.02</min>
+                    <max>4.0</max>
+                </range>
+            </lidar>
+                <topic>ultrasonic1/scan</topic>
+                <gz_frame_id>ultrasonic1_link</gz_frame_id>
+        </sensor>
+    </gazebo>
+
+    <joint name="ultrasonic2_joint" type="fixed">
+        <parent link="chassis"/>
+        <child link="ultrasonic2_link"/>
+        <origin xyz="${chassis_length-0.02} ${chassis_width/2+0.01} ${chassis_height/2}" rpy="0 0 ${pi/2}"/>
+    </joint>
+
+    <link name="ultrasonic2_link">
+        <visual>
+            <geometry>
+                <box size="0.02 0.04 0.02"/>
+            </geometry>
+            <material name="blue"/>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.02 0.04 0.02"/>
+            </geometry>
+        </collision>
+        <xacro:inertial_box mass="0.1" x="0.02" y="0.04" z="0.02">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </xacro:inertial_box>
+    </link>
+
+    <gazebo reference="ultrasonic2_link">
+
+        <sensor name="ultrasonic2_sensor" type="gpu_lidar">
+            <pose> 0 0 0 0 0 0 </pose>
+            <update_rate>20</update_rate>
+            <visualize>false</visualize>
+            <lidar>
+                <scan>
+                    <horizontal>
+                        <samples>5</samples>
+                        <min_angle>-0.26</min_angle>
+                        <max_angle>0.26</max_angle>
+                    </horizontal>
+                    <vertical>
+                        <samples>1</samples>
+                        <min_angle>0</min_angle>
+                        <max_angle>0</max_angle>
+                    </vertical>
+                </scan>
+                <range>
+                    <min>0.02</min>
+                    <max>4.0</max>
+                </range>
+            </lidar>
+                <topic>ultrasonic2/scan</topic>
+                <gz_frame_id>ultrasonic2_link</gz_frame_id>
+        </sensor>
+    </gazebo>
+
+    <joint name="ultrasonic3_joint" type="fixed">
+        <parent link="chassis"/>
+        <child link="ultrasonic3_link"/>
+        <origin xyz="${chassis_length-0.02} -${chassis_width/2+0.01} ${chassis_height/2}" rpy="0 0 -${pi/2}"/>
+    </joint>
+
+    <link name="ultrasonic3_link">
+        <visual>
+            <geometry>
+                <box size="0.02 0.04 0.02"/>
+            </geometry>
+            <material name="blue"/>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.02 0.04 0.02"/>
+            </geometry>
+        </collision>
+        <xacro:inertial_box mass="0.1" x="0.02" y="0.04" z="0.02">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </xacro:inertial_box>
+    </link>
+
+    <gazebo reference="ultrasonic3_link">
+
+        <sensor name="ultrasonic3_sensor" type="gpu_lidar">
+            <pose> 0 0 0 0 0 0 </pose>
+            <update_rate>20</update_rate>
+            <visualize>false</visualize>
+            <lidar>
+                <scan>
+                    <horizontal>
+                        <samples>5</samples>
+                        <min_angle>-0.26</min_angle>
+                        <max_angle>0.26</max_angle>
+                    </horizontal>
+                    <vertical>
+                        <samples>1</samples>
+                        <min_angle>0</min_angle>
+                        <max_angle>0</max_angle>
+                    </vertical>
+                </scan>
+                <range>
+                    <min>0.02</min>
+                    <max>4.0</max>
+                </range>
+            </lidar>
+                <topic>ultrasonic3/scan</topic>
+                <gz_frame_id>ultrasonic3_link</gz_frame_id>
+        </sensor>
+    </gazebo>
+
+    <joint name="ultrasonic4_joint" type="fixed">
+        <parent link="chassis"/>
+        <child link="ultrasonic4_link"/>
+        <origin xyz="-0.01 -${chassis_width/2-0.02} ${chassis_height/2}" rpy="0 0 -${pi}"/>
+    </joint>
+
+    <link name="ultrasonic4_link">
+        <visual>
+            <geometry>
+                <box size="0.02 0.04 0.02"/>
+            </geometry>
+            <material name="blue"/>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.02 0.04 0.02"/>
+            </geometry>
+        </collision>
+        <xacro:inertial_box mass="0.1" x="0.02" y="0.04" z="0.02">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </xacro:inertial_box>
+    </link>
+
+    <gazebo reference="ultrasonic4_link">
+
+        <sensor name="ultrasonic4_sensor" type="gpu_lidar">
+            <pose> 0 0 0 0 0 0 </pose>
+            <update_rate>20</update_rate>
+            <visualize>false</visualize>
+            <lidar>
+                <scan>
+                    <horizontal>
+                        <samples>5</samples>
+                        <min_angle>-0.26</min_angle>
+                        <max_angle>0.26</max_angle>
+                    </horizontal>
+                    <vertical>
+                        <samples>1</samples>
+                        <min_angle>0</min_angle>
+                        <max_angle>0</max_angle>
+                    </vertical>
+                </scan>
+                <range>
+                    <min>0.02</min>
+                    <max>4.0</max>
+                </range>
+            </lidar>
+                <topic>ultrasonic4/scan</topic>
+                <gz_frame_id>ultrasonic4_link</gz_frame_id>
+        </sensor>
+    </gazebo>
+
+    <joint name="ultrasonic5_joint" type="fixed">
+        <parent link="chassis"/>
+        <child link="ultrasonic5_link"/>
+        <origin xyz="-0.01 ${chassis_width/2-0.02} ${chassis_height/2}" rpy="0 0 -${pi}"/>
+    </joint>
+
+    <link name="ultrasonic5_link">
+        <visual>
+            <geometry>
+                <box size="0.02 0.04 0.02"/>
+            </geometry>
+            <material name="blue"/>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.02 0.04 0.02"/>
+            </geometry>
+        </collision>
+        <xacro:inertial_box mass="0.1" x="0.02" y="0.04" z="0.02">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </xacro:inertial_box>
+    </link>
+
+    <gazebo reference="ultrasonic5_link">
+
+        <sensor name="ultrasonic5_sensor" type="gpu_lidar">
+            <pose> 0 0 0 0 0 0 </pose>
+            <update_rate>20</update_rate>
+            <visualize>false</visualize>
+            <lidar>
+                <scan>
+                    <horizontal>
+                        <samples>5</samples>
+                        <min_angle>-0.26</min_angle>
+                        <max_angle>0.26</max_angle>
+                    </horizontal>
+                    <vertical>
+                        <samples>1</samples>
+                        <min_angle>0</min_angle>
+                        <max_angle>0</max_angle>
+                    </vertical>
+                </scan>
+                <range>
+                    <min>0.02</min>
+                    <max>4.0</max>
+                </range>
+            </lidar>
+                <topic>ultrasonic5/scan</topic>
+                <gz_frame_id>ultrasonic5_link</gz_frame_id>
         </sensor>
     </gazebo>
 

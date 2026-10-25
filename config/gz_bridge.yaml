@@ -12,8 +12,38 @@
   direction: GZ_TO_ROS
 
 # gz topic published by Sensors plugin (Ultrasonic)
-- ros_topic_name: "/ultrasonic/scan"
-  gz_topic_name: "/ultrasonic/scan"
+- ros_topic_name: "/ultrasonic0/scan"
+  gz_topic_name: "/ultrasonic0/scan"
+  ros_type_name: "sensor_msgs/msg/LaserScan"
+  gz_type_name: "gz.msgs.LaserScan"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/ultrasonic1/scan"
+  gz_topic_name: "/ultrasonic1/scan"
+  ros_type_name: "sensor_msgs/msg/LaserScan"
+  gz_type_name: "gz.msgs.LaserScan"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/ultrasonic2/scan"
+  gz_topic_name: "/ultrasonic2/scan"
+  ros_type_name: "sensor_msgs/msg/LaserScan"
+  gz_type_name: "gz.msgs.LaserScan"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/ultrasonic3/scan"
+  gz_topic_name: "/ultrasonic3/scan"
+  ros_type_name: "sensor_msgs/msg/LaserScan"
+  gz_type_name: "gz.msgs.LaserScan"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/ultrasonic4/scan"
+  gz_topic_name: "/ultrasonic4/scan"
+  ros_type_name: "sensor_msgs/msg/LaserScan"
+  gz_type_name: "gz.msgs.LaserScan"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/ultrasonic5/scan"
+  gz_topic_name: "/ultrasonic5/scan"
   ros_type_name: "sensor_msgs/msg/LaserScan"
   gz_type_name: "gz.msgs.LaserScan"
   direction: GZ_TO_ROS
