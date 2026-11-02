@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
 
-    <joint name="ultrasonic_joint" type="fixed">
+    <!-- <joint name="ultrasonic_joint" type="fixed">
         <parent link="chassis"/>
         <child link="ultrasonic_link"/>
         <origin xyz="${chassis_length+0.01} -${chassis_width/2-0.02} ${chassis_height/2}" rpy="0 0 0"/>
@@ -22,9 +22,9 @@
         <xacro:inertial_box mass="0.1" x="0.02" y="0.04" z="0.02">
             <origin xyz="0 0 0" rpy="0 0 0"/>
         </xacro:inertial_box>
-    </link>
+    </link> -->
 
-    <!-- <joint name="ultrasonic0_joint" type="fixed">
+    <joint name="ultrasonic0_joint" type="fixed">
         <parent link="chassis"/>
         <child link="ultrasonic0_link"/>
         <origin xyz="${chassis_length+0.01} -${chassis_width/2-0.02} ${chassis_height/2}" rpy="0 0 0"/>
@@ -76,7 +76,7 @@
         </sensor>
     </gazebo>
 
-    <joint name="ultrasonic1_joint" type="fixed">
+    <!-- <joint name="ultrasonic1_joint" type="fixed">
         <parent link="chassis"/>
         <child link="ultrasonic1_link"/>
         <origin xyz="${chassis_length+0.01} ${chassis_width/2-0.02} ${chassis_height/2}" rpy="0 0 0"/>
